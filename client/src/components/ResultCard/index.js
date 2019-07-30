@@ -4,7 +4,7 @@ import Button from '../Button'
 function ResultCard({ title, link, id, author, image, description, saveBook }) {
     if (!saveBook) {
         return (
-            <div>
+            <div id='result-card'>
                 <div className='row'>
                     <h4 className='col-3'>{title}</h4>
                     <span className='col-3 offset-6'>
@@ -15,8 +15,11 @@ function ResultCard({ title, link, id, author, image, description, saveBook }) {
                     </span>
                 </div>
                 <div className='row'>
+                <div className='col-3'>
                     <small>
-                        <br />Written by {author}</small>
+                        <br />Written By: 
+                        <br />{author}</small>
+                    </div>
                 </div>
                 <div className='row'>
                     <div className='col-3'>
@@ -30,7 +33,7 @@ function ResultCard({ title, link, id, author, image, description, saveBook }) {
         )
     } else {
         return (
-            <div>
+            <div id='result-card'>
                 <div className='row'>
                     <h4 className='col-3'>{title}</h4>
                     <span className='col-3 offset-6'>
@@ -46,8 +49,11 @@ function ResultCard({ title, link, id, author, image, description, saveBook }) {
                     </span>
                 </div>
                 <div className='row'>
+                    <div className='col-3'>
                     <small>
-                        <br />Written by {author}</small>
+                        <br />Written By:
+                        <br />{author}</small>
+                    </div>
                 </div>
                 <div className='row'>
                     <div className='col-3'>

@@ -3,14 +3,10 @@ import React from 'react';
 function SearchForm(props){
     
     return(
-    <div>
+    <div id='search-form'>
 
         <p className='lead'>Book Search</p>
-
-        <label
-            for='title'
-        >   Book
-        </label>
+        <br />
         <input name='title'
             placeholder='Search for a book...'
             type='text'
