@@ -1,27 +1,20 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from './components/pages/Home'
+import Saved from './components/pages/Saved'
 import "./App.css";
-import Navbar from './components/Navbar'
-import Jumbotron from './components/Jumbotron'
 
 class App extends Component {
-  state = {
-    books: [],
-    results: [],
-    title: "",
-    author: ""
-  }
-
   render() {
     return (
-    <div>
-        <Navbar />
-        <Jumbotron/>
-      <div className='container'>
-      <h3>Book Search</h3>
-      <p></p>
-      </div>
-    </div>
+      <Router>
+        <div>
+          <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/saved" component={Saved} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

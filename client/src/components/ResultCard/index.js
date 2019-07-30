@@ -1,33 +1,32 @@
 import React from 'react';
 import Button from '../Button'
 
-function ResultCard(props) {
+function ResultCard({ title, link, id, author, image, description, saveBook }) {
     return (
-
         <div>
             <div className='row'>
-                <h3 className='col-3'>{props.title}</h3>
+                <h3 className='col-3'>{title}</h3>
                 <span className='col-3 offset-6'>
-                    <Button 
-                    href= {props.link}
-                        >View
+                    <Button
+                        href={link}
+                    >View
                     </Button>
                     <Button
-                        onClick={() => props.saveBook(props.id)}
+                        onClick={() => saveBook(id)}
                     >Save
                     </Button>
                 </span>
             </div>
             <div className='row'>
                 <small>
-                    <br />Written by {props.author}</small>
+                    <br />Written by {author}</small>
             </div>
             <div className='row'>
                 <div className='col-3'>
-                    <img src={props.image} alt={props.title} />
+                    <img src={image} alt={title} />
                 </div>
                 <div className='col-9'>
-                    {props.description}
+                    {description}
                 </div>
             </div>
         </div>
