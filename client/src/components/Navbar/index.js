@@ -11,16 +11,14 @@ function Navbar() {
       </button>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <Router>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link className="nav-link" to="/">Search</Link>
+              <a className="nav-link" href="/">Search</a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/saved">Saved</Link>
+              <a className="nav-link" href="/saved">Saved</a>
             </li>
           </ul>
-        </Router>
       </div>
     </nav>)
 }

@@ -3,7 +3,7 @@ import React from 'react';
 function Button(props) {
     if (props.href) {
         return (
-        <button className='btn btn-primary'>
+        <button className='btn btn-light btn-large'>
             <a href={props.href}>{props.children}</a>
         </button>
         )

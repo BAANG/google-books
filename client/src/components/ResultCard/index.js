@@ -1,13 +1,12 @@
 import React from 'react';
 import Button from '../Button'
-import { PromiseProvider } from 'mongoose';
 
 function ResultCard({ title, link, id, author, image, description, saveBook }) {
     if (!saveBook) {
         return (
             <div>
                 <div className='row'>
-                    <h3 className='col-3'>{title}</h3>
+                    <h4 className='col-3'>{title}</h4>
                     <span className='col-3 offset-6'>
                         <Button
                             href={link}
@@ -33,7 +32,7 @@ function ResultCard({ title, link, id, author, image, description, saveBook }) {
         return (
             <div>
                 <div className='row'>
-                    <h3 className='col-3'>{title}</h3>
+                    <h4 className='col-3'>{title}</h4>
                     <span className='col-3 offset-6'>
                         <Button
                             href={link}
