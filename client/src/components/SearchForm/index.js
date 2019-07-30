@@ -10,14 +10,16 @@ function SearchForm(props){
         <label
             for='title'
         >   Book
-            </label>
+        </label>
         <input name='title'
             placeholder='Search for a book...'
-            type='text'></input>
+            type='text'
+            onChange={props.handleInputChange}></input>
         <button
             onClick={props.handleFormSubmit}
             type='submit'
-            value='Submit'>Submit</button>
+        >   Search
+        </button>
     </div>
     )
 }

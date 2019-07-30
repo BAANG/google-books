@@ -10,7 +10,11 @@ function Button(props) {
     }
     else if (props.onClick) {
         return (
-            <button onClick={props.onClick} className='btn btn-primary'>
+            <button 
+            className='btn btn-primary'
+            onClick={props.onClick}
+            data-id={props.id} 
+            >
             {props.children}
         </button>
         )

@@ -12,7 +12,8 @@ function ResultCard({ title, link, id, author, image, description, saveBook }) {
                     >View
                     </Button>
                     <Button
-                        onClick={() => saveBook(id)}
+                        id={id}
+                        onClick={(event) => saveBook(event)}
                     >Save
                     </Button>
                 </span>
