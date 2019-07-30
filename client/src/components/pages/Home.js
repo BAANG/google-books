@@ -34,17 +34,36 @@ class Home extends Component {
     
     handleSaveBook = event => {
         event.preventDefault();
+
         const bookID = event.target.getAttribute('data-id')
-        console.log("Book ID:", bookID )
+        // console.log("Book ID:", bookID )
+
         const newState = {...this.state}
-        console.log(this.state.results)
+        // console.log(this.state.results)
+
         let targetBook = this.state.results.filter(book => book.id === bookID)
-        if (newState.books[bookID] === targetBook[0]) {
+        // Parses out book data from results by book id
+
+        const newBook = {
+            title: targetBook[0].volumeInfo.title,
+            authors: targetBook[0].volumeInfo.authors,
+            description: targetBook[0].volumeInfo.description,
+            image: targetBook[0].volumeInfo.imageLinks.thumbnail,
+            link: targetBook[0].volumeInfo.infoLink
+        }
+        // Instantiates new object formatted per the db schema.
+
+        if (newState.books[bookID] === newBook) {
             console.log(`You've already saved that book.`)
+            return
+
         } else {
-            newState.books[bookID] = targetBook
-            console.log('Target:', targetBook[0])
+            newState.books[bookID] = newBook
+            // console.log('Target:', targetBook[0])
+
             this.setState(newState)
+            // Mutates state to now hold saved books in this.state.books
+
             API.saveBook({
                 title: targetBook[0].volumeInfo.title,
                 authors: targetBook[0].volumeInfo.authors,
@@ -52,7 +71,8 @@ class Home extends Component {
                 image: targetBook[0].volumeInfo.imageLinks.thumbnail,
                 link: targetBook[0].volumeInfo.infoLink
             })
-            console.log(newState.books)
+
+            // console.log(newState.books)
         }
     }
 

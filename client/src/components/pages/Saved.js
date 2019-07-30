@@ -6,15 +6,18 @@ import ResultCard from "../ResultCard";
 
 class Saved extends Component {
     state = {
-        books: [],
-        results: [],
-        title: "",
-        author: ""
+        results: []
     }
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        API.getBook(this.state.title)
+    componentDidMount() {
+        API.getBooks()
+            .then(res =>  {
+                this.setState({ results: res.data });
+                console.log('results:', this.state.results)
+            })
+            .catch(err => {
+                throw err
+            })
     }
 
     render() {
@@ -24,7 +27,21 @@ class Saved extends Component {
                 <Jumbotron />
                 <div className='container'>
                     <h3>Your Saved Books</h3>
-                    <p></p>
+                    <div className='container-fluid' id='main-content'>
+                        {this.state.results.map((book) => {
+                            return (
+                                <ResultCard
+                                    key={book._id}
+                                    title={book.title}
+                                    id={book._id}
+                                    link={book.link}
+                                    author={book.authors}
+                                    image={book.image}
+                                    description={book.description}
+                                />
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         );
