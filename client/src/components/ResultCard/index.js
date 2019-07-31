@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../Button'
 
-function ResultCard({ title, link, id, author, image, description, saveBook }) {
+function ResultCard({ title, link, id, author, image, description, saveBook, deleteBook }) {
     if (!saveBook) {
         return (
             <div id='result-card'>
@@ -16,6 +16,11 @@ function ResultCard({ title, link, id, author, image, description, saveBook }) {
                         <Button
                             href={link}
                         >View
+                        </Button>
+                        <Button
+                            id={id}
+                            onClick={(event) => deleteBook(event)}
+                        >Delete
                         </Button>
                     </span>
                 </div>

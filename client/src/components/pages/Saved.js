@@ -20,6 +20,29 @@ class Saved extends Component {
             })
     }
 
+    handleDeleteBook = event => {
+        event.preventDefault();
+
+        const bookID = event.target.getAttribute('data-id')
+
+        const newState = {...this.state}
+
+        newState.results = this.state.results.filter(book => book._id !== bookID)
+        // Filters out any books with the matching target id
+
+        API.deleteBook(bookID).then(
+            (response) => {
+                this.setState(newState)
+                console.log(response);
+
+            }
+        ).catch(
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
+
     render() {
         return (
             <div>
@@ -38,6 +61,7 @@ class Saved extends Component {
                                     author={book.authors}
                                     image={book.image}
                                     description={book.description}
+                                    deleteBook={this.handleDeleteBook}
                                 />
                             )
                         })}
