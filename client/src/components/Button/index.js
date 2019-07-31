@@ -3,7 +3,7 @@ import React from 'react';
 function Button(props) {
     if (props.href) {
         return (
-        <button className='btn btn-light btn-large'>
+        <button className='btn btn-outline-dark btn-lg btn-block'>
             <a href={props.href}>{props.children}</a>
         </button>
         )
@@ -11,7 +11,7 @@ function Button(props) {
     else if (props.onClick) {
         return (
             <button 
-            className='btn btn-primary'
+            className='btn btn-primary btn-lg btn-block'
             onClick={props.onClick}
             data-id={props.id} 
             >
