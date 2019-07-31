@@ -12,6 +12,17 @@ class Home extends Component {
         title: ""
     }
 
+    componentDidMount() {
+        API.getBooks()
+            .then(res =>  {
+                this.setState({ books: res.data });
+                console.log('books:', this.state.books)
+            })
+            .catch(err => {
+                throw err
+            })
+    }
+
     handleInputChange = event => {
         const { name, value } = event.target
         this.setState({
@@ -53,16 +64,17 @@ class Home extends Component {
         }
         // Instantiates new object formatted per the db schema.
 
-        if (newState.books[bookID] === newBook) {
+        if (this.state.books[bookID]) {
             console.log(`You've already saved that book.`)
             return
 
         } else {
             newState.books[bookID] = newBook
             // console.log('Target:', targetBook[0])
-
+            
             this.setState(newState)
             // Mutates state to now hold saved books in this.state.books
+            console.log('Updated this.state:', this.state.books)
 
             API.saveBook({
                 title: targetBook[0].volumeInfo.title,
